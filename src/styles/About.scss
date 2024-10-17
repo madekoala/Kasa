@@ -1,0 +1,20 @@
+.banner_about {
+  width: 90%;
+  height: 223px;
+  margin: 44px auto 0 auto;
+  border-radius: 25px;
+  background: url(../../public/assets/banner-aboutpage.png), center/cover #00000050;
+  background-blend-mode: darken;
+  background-size: 100% 100%;
+}
+
+/* MediaQueries */
+@media all and (max-width: 767px) {
+  .dropdown {
+    margin: 20px auto;
+  }
+}
+
+.dropdown_container:active {
+  transition-duration: 1.2s;
+}
