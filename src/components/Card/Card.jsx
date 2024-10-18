@@ -12,7 +12,7 @@ function card(){
   // Utilisation du hook useEffect pour effectuer une action après le rendu initial du composant
   useEffect(() => {
     // Appel à l'API avec axios pour récupérer les données des hébergements
-    axios.get("./hotels.json").then((res) => setData(res.data));
+    axios.get("./logement.json").then((res) => setData(res.data));
   }, []);
 
   // Rendu du composant
@@ -23,7 +23,7 @@ function card(){
         <NavLink to={`/lodgment/${lodgment.id}`} key={lodgment.id}>
           <article className="card_thumb">
             <img
-            /* hotel.json  */
+            /* logement.json  */
               src={lodgment.cover}
               alt={lodgment.title}
               className="card_img"

@@ -3,23 +3,23 @@ import React, { useState, useEffect } from "react";
 // Import d'axios pour effectuer des requêtes HTTP
 import axios from "axios";
 // Import du composant Header depuis un fichier local
-import Header from "./src/components/Header/Header";
+import Header from "../components/Header/Header";
 // Import du composant Footer depuis un fichier local
-import Footer from "./src/components/Footer/Footer";
+import Footer from "../components/Footer/Footer";
 // Import du composant Error depuis un fichier local
-import Error from "./src/pages/Error";
+import Error from "../pages/Error";
 // Import du composant Slideshow depuis un fichier local
-import Slideshow from "./src/components/Gallery/slideshow";
+import Slideshow from "../components/Gallery/slideshow";
 // Import du composant Collapse depuis un fichier local
-import Collapse from "./src/components/Collapse/Collapse";
+import Collapse from "../components/Collapse/Collapse";
 // Import du composant HousingHost depuis un fichier local
-import HousingHost from "./src/components/housing/Housinghost";
+import HousingHost from "../components/housing/Housinghost";
 // Import du composant HousingRatings depuis un fichier local
-import HousingRatings from "./src/components/housing/HousingRating";
+import HousingRatings from "../components/housing/HousingRating";
 // Import du composant HousingTags depuis un fichier local
-import HousingTags from "./src/components/housing/HousingTag";
+import HousingTags from "../components/housing/HousingTag";
 // Import du composant HousingTitle depuis un fichier local
-import HousingTitle from "./src/components/housing/HousingTitle";
+import HousingTitle from "../components/housing/HousingTitle";
 
 // Composant Housing : représente une page d'hébergement spécifique
 function Housing() {
@@ -32,7 +32,7 @@ function Housing() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("../hotels.json");
+        const response = await axios.get("./assets/data/logement.json");
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
