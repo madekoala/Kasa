@@ -27,7 +27,7 @@ function Housing() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const lodgmentId = window.location.pathname.substring(10);
+  const housingId = window.location.pathname.substring(10);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,46 +52,43 @@ function Housing() {
     return <Error />;
   }
 
-  const lodgment = data.find((item) => item.id === lodgmentId);
+  const housing = data.find((item) => item.id === housingId);
   // Si aucun hébergement correspondant n'est trouvé, affichage du composant Error
-  if (!lodgment) return <Error />;
+  if (!housing) return <Error />;
 
   // Rendu du composant
   return (
-    <div className="lodgment">
+    <div className="housing">
       <Header /> {/* Affiche le composant Header */}
-      <main key={lodgment.id}>
-        <Slideshow pictures={lodgment.pictures} />{" "}
+      <main key={housing.id}>
+        <Slideshow pictures={housing.pictures} />{" "}
         {/* Affiche le composant Slideshow avec les images de l'hébergement */}
-        <section className="lodgment_body">
-          <div className="lodgment_wrapper">
-            <div className="lodgment_info">
-              <HousingTitle
-                title={lodgment.title}
-                location={lodgment.location}
-              />{" "}
+        <section className="housing_body">
+          <div className="housing_wrapper">
+            <div className="housing_info">
+              <HousingTitle title={housing.title} location={housing.location} />{" "}
               {/* Affiche le composant HousingTitle avec le titre et l'emplacement de l'hébergement */}
-              <HousingTags tags={lodgment.tags} />{" "}
+              <HousingTags tags={housing.tags} />{" "}
               {/* Affiche le composant HousingTags avec les tags de l'hébergement */}
             </div>
-            <div className="lodgment_host">
-              <HousingHost host={lodgment.host} />{" "}
+            <div className="housing_host">
+              <HousingHost host={housing.host} />{" "}
               {/* Affiche le composant HousingHost avec les informations sur l'hôte de l'hébergement */}
-              <HousingRatings ratings={lodgment.rating} />{" "}
+              <HousingRatings ratings={housing.rating} />{" "}
               {/* Affiche le composant HousingRatings avec les évaluations de l'hébergement */}
             </div>
           </div>
-          <div className="lodgment_details">
+          <div className="housing_details">
             <Collapse
               title="Description"
-              description={lodgment.description}
-              class="dropdown_lodgment"
+              description={housing.description}
+              class="dropdown_housing"
             ></Collapse>{" "}
             {/* Affiche le composant Collapse avec le titre "Description" et la description de l'hébergement */}
             <Collapse
               title="Équipements"
-              description={lodgment.equipments}
-              class="dropdown_lodgment"
+              description={housing.equipments}
+              class="dropdown_housing"
             ></Collapse>{" "}
             {/* Affiche le composant Collapse avec le titre "Équipements" et les équipements de l'hébergement */}
           </div>

@@ -1,7 +1,7 @@
 // Import de React
 import React from "react";
 // Import de l'image star du fichier star.svg
-import star from './star.svg';
+import star from "./star.svg";
 
 // Composant HousingRatings : affiche les évaluations d'un hébergement sous forme d'étoiles
 function HousingRatings(props) {
@@ -9,7 +9,7 @@ function HousingRatings(props) {
   const ratingNumber = [1, 2, 3, 4, 5];
 
   return (
-    <div className="lodgment_rating">
+    <div className="housing_rating">
       {ratingNumber.map((el) => {
         return (
           // Affiche l'image Star avec la couleur remplie en fonction de la note et une clé unique
@@ -18,7 +18,7 @@ function HousingRatings(props) {
             alt="star"
             key={`star-${el}`}
             style={{ fill: el <= props.ratings ? "#ff6060" : "#f7f7f7" }}
-            className="lodgment_star"
+            className="housing_star"
           />
         );
       })}

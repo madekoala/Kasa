@@ -1,54 +1,47 @@
-// Import de React
-import React from "react";
-// Import du hook useState de React
-import { useState } from "react";
-// import des fleches
-import { ReactComponent as ArrowLeft } from "../Gallery/arrowleft.svg";
-import { ReactComponent as ArrowRight } from "../Gallery/arrowright.svg";
+import React, { useState } from "react";
+// Import des flèches SVG comme URL
+import arrowLeft from '../Gallery/arrowleft.svg?url';
+import arrowRight from '../Gallery/arrowright.svg?url';
 
 // Composant Slideshow : affiche un carrousel d'images
-function Slideshow(props) {
-  // Slide actuelle
+function Slideshow({ pictures }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  // Calcule longueur totale de 'pictures' en extrayant la propriété 'pictures' de chaque élément du tableau 'props.pictures'
-  const arrayLength = props.pictures.flatMap((el) => el.pictures).length;
+  const flatPictures = pictures.flatMap((el) => el.pictures || el);
 
-  // Fonction pour passer à la slide précédente
+  const arrayLength = flatPictures.length;
+
   function prevSlide() {
-    let newSlide = currentSlide === 0 ? arrayLength - 1 : currentSlide - 1;
-    setCurrentSlide(newSlide);
+    setCurrentSlide((prev) => (prev === 0 ? arrayLength - 1 : prev - 1));
   }
 
-  // Fonction pour passer à la slide suivante
   function nextSlide() {
-    let newSlide = currentSlide === arrayLength - 1 ? 0 : currentSlide + 1;
-    setCurrentSlide(newSlide);
+    setCurrentSlide((prev) => (prev === arrayLength - 1 ? 0 : prev + 1));
   }
 
-  // Accède directement à l'élément correspondant dans le tableau props.pictures
-  const currentPicture = props.pictures[currentSlide];
+  if (arrayLength === 0) {
+    return <div className="slideshow_empty">Aucune image disponible</div>;
+  }
 
   return (
-    // Création de la section qui accueillera les slides
     <section className="slideshow_container">
-      <div
-        className={
-          arrayLength <= 1
-            ? "arrow_hidden slideshow_navigation"
-            : "slideshow_navigation"
-        }
-      >
-        <ArrowLeft onClick={() => prevSlide()} />
-        <ArrowRight onClick={() => nextSlide()} />
-      </div>
-      <img src={currentPicture} alt="" className="slideshow_img" />
-      <div
-        className={
-          arrayLength <= 1 ? "arrow_hidden slideshow_text" : "slideshow_text"
-        }
-      >
-        {currentSlide + 1}/{arrayLength}
-      </div>
+      {/* Navigation flèches, masquées si une seule image */}
+      {arrayLength > 1 && (
+        <div className="slideshow_navigation">
+          <img src={arrowLeft} onClick={prevSlide} alt="Flèche gauche" className="slideshow_arrow" />
+          <img src={arrowRight} onClick={nextSlide} alt="Flèche droite" className="slideshow_arrow" />
+        </div>
+      )}
+      {/* Affichage de l'image actuelle */}
+      <img
+        src={flatPictures[currentSlide]}
+        alt={`Slide ${currentSlide + 1}`}
+        className="slideshow_img"
+      />
+      {arrayLength > 1 && (
+        <div className="slideshow_text">
+          {currentSlide + 1}/{arrayLength}
+        </div>
+      )}
     </section>
   );
 }

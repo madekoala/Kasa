@@ -5,8 +5,8 @@ import axios from "axios";
 // Import de NavLink depuis la bibliothèque react-router-dom
 import { NavLink } from "react-router-dom";
 
-function card(){
-    // Utilisation du hook useState pour gérer l'état des données
+function card() {
+  // Utilisation du hook useState pour gérer l'état des données
   const [data, setData] = useState([]);
 
   // Utilisation du hook useEffect pour effectuer une action après le rendu initial du composant
@@ -19,16 +19,16 @@ function card(){
   return (
     <section className="cards">
       {/* Utilisation de la méthode map() pour parcourir le tableau de données et afficher chaque hébergement sous forme de carte */}
-      {data.map((lodgment) => (
-        <NavLink to={`/lodgment/${lodgment.id}`} key={lodgment.id}>
+      {data.map((housing) => (
+        <NavLink to={`/housing/${housing.id}`} key={housing.id}>
           <article className="card_thumb">
             <img
-            /* logement.json  */
-              src={lodgment.cover}
-              alt={lodgment.title}
+              /* logement.json  */
+              src={housing.cover}
+              alt={housing.title}
               className="card_img"
             ></img>
-            <p className="card_text">{lodgment.title}</p>
+            <p className="card_text">{housing.title}</p>
           </article>
         </NavLink>
       ))}
