@@ -1,38 +1,27 @@
-// Import de React, useState et useEffect depuis la bibliothèque React
 import React, { useState, useEffect } from "react";
-// Import d'axios pour effectuer des requêtes HTTP
+import { useParams } from "react-router-dom"; // Utilisation de useParams pour récupérer l'ID de l'URL
 import axios from "axios";
-// Import du composant Header depuis un fichier local
 import Header from "../components/Header/Header";
-// Import du composant Footer depuis un fichier local
 import Footer from "../components/Footer/Footer";
-// Import du composant Error depuis un fichier local
 import Error from "../pages/Error";
-// Import du composant Slideshow depuis un fichier local
 import Slideshow from "../components/Gallery/slideshow";
-// Import du composant Collapse depuis un fichier local
 import Collapse from "../components/Collapse/Collapse";
-// Import du composant HousingHost depuis un fichier local
 import HousingHost from "../components/housing/Housinghost";
-// Import du composant HousingRatings depuis un fichier local
 import HousingRatings from "../components/housing/HousingRating";
-// Import du composant HousingTags depuis un fichier local
 import HousingTags from "../components/housing/HousingTag";
-// Import du composant HousingTitle depuis un fichier local
 import HousingTitle from "../components/housing/HousingTitle";
 
 // Composant Housing : représente une page d'hébergement spécifique
 function Housing() {
+  const { id } = useParams(); // Récupération de l'ID via l'URL avec useParams
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const housingId = window.location.pathname.substring(10);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("./assets/data/logement.json");
+        const response = await axios.get("../../public/logement.json");
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -52,9 +41,12 @@ function Housing() {
     return <Error />;
   }
 
-  const housing = data.find((item) => item.id === housingId);
+  const housing = data.find((item) => item.id === id);
+
   // Si aucun hébergement correspondant n'est trouvé, affichage du composant Error
-  if (!housing) return <Error />;
+  if (!housing) {
+    return <Error />;
+  }
 
   // Rendu du composant
   return (
@@ -82,14 +74,20 @@ function Housing() {
             <Collapse
               title="Description"
               description={housing.description}
-              class="dropdown_housing"
-            ></Collapse>{" "}
+              className="dropdown_housing"
+            />{" "}
             {/* Affiche le composant Collapse avec le titre "Description" et la description de l'hébergement */}
             <Collapse
               title="Équipements"
-              description={housing.equipments}
-              class="dropdown_housing"
-            ></Collapse>{" "}
+              description={
+                <ul>
+                  {housing.equipments.map((equipment, index) => (
+                    <li key={index}>{equipment}</li>
+                  ))}
+                </ul>
+              }
+              className="dropdown_housing"
+            />{" "}
             {/* Affiche le composant Collapse avec le titre "Équipements" et les équipements de l'hébergement */}
           </div>
         </section>

@@ -12,7 +12,7 @@ export default function Collapse(props) {
   function collapseContent() {
     // Stocke la description passée en props dans une variable content
     const content = props.description;
-    
+
     // Si le contenu est une chaîne de caractères, l'affiche dans une balise <p>
     if (typeof content === "string") {
       return <p className="dropdown_text">{content}</p>;
@@ -21,7 +21,9 @@ export default function Collapse(props) {
       return (
         <ul>
           {content.map((item, idx) => (
-            <li className="collapse_list" key={idx}>{item}</li>
+            <li className="collapse_list" key={idx}>
+              {item}
+            </li>
           ))}
         </ul>
       );
@@ -33,10 +35,9 @@ export default function Collapse(props) {
     <article className={props.class}>
       <div className="dropdown_trigger" onClick={() => setIsActive(!isActive)}>
         <h2 className="dropdown_title">{props.title}</h2>
-        <img 
-          // Retourne la flèche au clic avec "?"
-          src={import.meta.env.VITE_PUBLIC_URL + "/vector.png"}
-          alt="vector"
+        <img
+          src="/vector.png"
+          alt="flèche"
           className={isActive ? "dropdown_chevron_rotate" : "dropdown_chevron"}
         />
       </div>
