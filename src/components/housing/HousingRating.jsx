@@ -3,6 +3,7 @@ import React from "react";
 // Import de l'image star du fichier star.svg
 import star from "./star.svg";
 
+
 // Composant HousingRatings : affiche les évaluations d'un hébergement sous forme d'étoiles
 function HousingRatings(props) {
   // Tableau contenant les nombres de notation possibles
