@@ -1,4 +1,3 @@
-// Import de React
 import React from "react";
 
 // Composant HousingsHost : affiche le nom de l'hôte et son image

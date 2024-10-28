@@ -32,7 +32,7 @@ export default function Collapse(props) {
 
   // Renvoie un article qui peut être cliqué pour afficher ou cacher le contenu déroulant
   return (
-    <article className={props.class}>
+    <article className={"dropdown_housing"}>
       <div className="dropdown_trigger" onClick={() => setIsActive(!isActive)}>
         <h2 className="dropdown_title">{props.title}</h2>
         <img

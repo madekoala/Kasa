@@ -3,7 +3,7 @@ import arrowLeft from "../Gallery/arrowleft.svg";
 import arrowRight from "../Gallery/arrowright.svg";
 
 function Slideshow({ pictures = [] }) {
-  // Vérifier que pictures est bien un tableau
+  // pictures est un tableau
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Si pictures est vide, retourner un message d'erreur ou un contenu par défaut

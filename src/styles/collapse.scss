@@ -3,6 +3,10 @@
 .dropdown {
   width: 80%;
   margin: 43px auto;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+
 }
 
 .dropdown_container {

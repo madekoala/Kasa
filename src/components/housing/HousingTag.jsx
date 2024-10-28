@@ -1,4 +1,3 @@
-// Import de React
 import React from "react";
 
 // Composant HousingTags : affiche les tags d'un hébergement sous forme d'une liste

@@ -1,9 +1,6 @@
-// Import de React depuis la bibliothèque React
 import React from "react";
-// Import de NavLink depuis la bibliothèque react-router-dom
 import { NavLink } from "react-router-dom";
 
-// Composant Header : représente l'en-tête de la page
 function Header() {
   // Rendu du composant
   return (

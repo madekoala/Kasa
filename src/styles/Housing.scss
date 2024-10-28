@@ -126,18 +126,26 @@
 
 .housing_star {
   width: 34px;
+  fill: yellow;
   height: 25px;
 }
 
 /* Housing details */
+.housing_rating {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
 .housing_details {
   margin: 25px 0;
   display: flex;
   justify-content: space-between;
+  gap: 76px;
 }
 
 .dropdown_housing {
-  width: 45%;
+  width: 100%;
 
   p,
   li {

@@ -15,11 +15,9 @@ function App() {
     <BrowserRouter>
       <Header />
 
-      {/* Gestion des routes */}
       <Routes>
-        {/* Gestion des différentes routes */}
-        <Route path="/" element={<Home />} /> {/* Page d'accueil */}
-        <Route path="/about" element={<About />} /> {/* Page "À Propos" */}
+        <Route path="/" element={<Home />} /> 
+        <Route path="/about" element={<About />} /> 
         <Route path="/housing/:id" element={<Housing />} />
         <Route path="*" element={<Error />} />
       </Routes>

@@ -1,6 +1,4 @@
-// Import de React depuis la bibliothèque React
 import React from "react";
-// Import des composants nécessaires depuis des fichiers locaux
 import Banner from "../components/Banner/Banner";
 import Collapse from "../components/Collapse/Collapse";
 import Footer from "../components/Footer/Footer";

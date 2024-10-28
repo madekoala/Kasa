@@ -1,4 +1,3 @@
-// Import de React
 import React from "react";
 
 // Composant housingTitle : affiche le titre et l'emplacement d'un hébergement
