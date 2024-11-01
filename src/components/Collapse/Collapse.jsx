@@ -1,16 +1,12 @@
-// Import de React
 import React from "react";
-// Import du hook useState de React
 import { useState } from "react";
 
-// Fonction Collapse : composant pour afficher un contenu déroulant
 export default function Collapse(props) {
   // Crée une variable d'état isActive initialisée à false
   const [isActive, setIsActive] = useState(false);
 
   // Fonction pour afficher le contenu du collapse
   function collapseContent() {
-    // Stocke la description passée en props dans une variable content
     const content = props.description;
 
     // Si le contenu est une chaîne de caractères, l'affiche dans une balise <p>

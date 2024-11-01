@@ -8,7 +8,7 @@ import Collapse from "../components/Collapse/Collapse";
 import HousingTitle from "../components/housing/HousingTitle";
 import HousingTags from "../components/housing/HousingTag";
 import HousingHost from "../components/housing/Housinghost";
-import { useParams } from "react-router-dom"; // Import de useParams pour récupérer l'ID depuis l'URL
+import { useParams } from "react-router-dom"; 
 import HousingRatings from "../components/housing/HousingRating";
 
 function Housing() {
@@ -50,7 +50,7 @@ function Housing() {
             </div>
             <div className="housing_host">
               <HousingHost host={housing.host} />
-              <HousingRatings rating={housing.rating} />
+             <HousingRatings rating={housing.rating} />
             </div>
           </div>
           <div className="housing_details">
@@ -60,7 +60,7 @@ function Housing() {
               className="dropdown_housing"
             />
             <Collapse
-              title="Équipements"
+              title="Équipements"riuhg
               description={housing.equipments.join(", ")}
               className="dropdown_housing"
             />
